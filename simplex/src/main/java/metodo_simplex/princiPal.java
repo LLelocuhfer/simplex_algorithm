@@ -1,27 +1,29 @@
 package metodo_simplex;
 import java.awt.Color;
-import javax.swing.JFrame;//paqueteria para poder crear las ventanas 
-import javax.swing.JPanel;//para poder crear un panel
-//import java.awt.Color;//para poder dar color a el panel
-import java.awt.Font;//PODER DARLE FORMATO A EL TEXTO 
-import javax.swing.JLabel;//libreria para poder generar las etiquetass
-import javax.swing.SwingConstants;//para poder centrar las etiquetas 
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import java.awt.Font;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+import javax.swing.JButton;
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 public class princiPal extends JFrame {
     /**Colores para la vetana **/ 
     Color gummental = new Color(10,46,54);
     Color esmeralda = new Color(20,204,96);
    Color verde_prim = new Color(39,251,107);
-         
-    public princiPal(){
+         public  JPanel panel;
+        
+         public princiPal(){
         setTitle("Metodo simplex");
-        setBounds(350,100,800,500);
+        setBounds(0,0,1875,765);
        componentes();
+       botones();
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
      
      private void componentes(){
-    JPanel panel= new JPanel();
+    panel= new JPanel();
     panel.setBackground(verde_prim);
     panel.setLayout(null);
     this.getContentPane().add(panel);
@@ -35,4 +37,11 @@ public class princiPal extends JFrame {
      panel.add(titulo_1);
     
     }
+     private void botones ()
+     {
+         JButton boton_1 = new JButton ("Iniciar");
+         boton_1.setBounds(100,100,100,23);
+         panel.add(boton_1);
+     }
+     
 }
