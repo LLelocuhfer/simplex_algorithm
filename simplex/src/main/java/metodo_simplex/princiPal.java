@@ -1,12 +1,8 @@
 package metodo_simplex;
-import java.awt.Color;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import java.awt.Font;
-import javax.swing.JLabel;
-import javax.swing.SwingConstants;
-import javax.swing.JButton;
-import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
+
+import java.awt.*;
+import javax.swing.*;
+
 public class princiPal extends JFrame {
     /**Colores para la vetana **/ 
     Color gummental = new Color(10,46,54);
