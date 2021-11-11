@@ -25,6 +25,11 @@ public class princiPal<J> extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
      
+  
+  
+       
+
+        
     private void componentes(){
     panel= new JPanel();
     panel.setBackground(verde_prim);
@@ -40,7 +45,7 @@ public class princiPal<J> extends JFrame {
     panel.add(titulo_1);
     //footer
     JLabel titulo_2 = new JLabel("| Desarrollado por: | Fernando Patoni De La Rosa | Jesus Antonio Mendez Garcia | Sebastian Giovanni Grajales Mendez",SwingConstants.CENTER);
-    titulo_2.setBounds(-1,690,1400,35);
+    titulo_2.setBounds(-1,670,1400,35);
     titulo_2.setForeground(esmeralda);
     titulo_2.setOpaque(true);
     titulo_2.setBackground(gummental);
