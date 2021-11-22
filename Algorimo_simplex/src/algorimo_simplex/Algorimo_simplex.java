@@ -1,6 +1,6 @@
-package algorimo_simplex;
+package Metodos;
 
-public class Algorimo_simplex {
+public class Metodos {
 
     
     public static void main(String[] args) {
