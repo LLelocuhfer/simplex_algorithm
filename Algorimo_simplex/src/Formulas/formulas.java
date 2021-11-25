@@ -97,31 +97,31 @@ Allows you to capture the values ​​of a series of characters
         return nn;
     }
 
-    /**
-     * Permite separar en Subindice y exponente a un mismo termino
-     * @param termino: termino de la ecuacion
+    /*
+     * It allows to separate in Sub-index and exponent to the same term
+     * @param term: end of the equation
      */
-    private static void separar(String termino) {
+    private static void separate(String term) {
         int ind = 0;
         try {
             
-            if (termino.charAt(0) == '+') {
-                termino = termino.substring(1);
+            if (term.charAt(0) == '+') {
+                term = term.substring(1);
             }
-            if (termino.charAt(0) == 'x') {
-                termino = "1" + termino;
+            if (term.charAt(0) == 'x') {
+                term = "1" + term;
             }
-            if (termino.charAt(0) == '-' && termino.charAt(1) == 'x') {
-                termino = "-1" + termino.substring(1);
+            if (term.charAt(0) == '-' && term.charAt(1) == 'x') {
+                term = "-1" + term.substring(1);
             }
         } catch (Exception ex) {
             System.out.println("ERROR DE TERMINO en separar()");
         }
 
         //2x1
-        if (termino.contains("x")) {
-            ind = Integer.parseInt(termino.substring(termino.indexOf('x') + 1));
-            terminosAuxiliar[ind - 1] = Double.parseDouble(termino.substring(0, termino.indexOf('x')));
+        if (term.contains("x")) {
+            ind = Integer.parseInt(term.substring(term.indexOf('x') + 1));
+            terminosAuxiliar[ind - 1] = Double.parseDouble(term.substring(0, term.indexOf('x')));
         }
         if (ind > indMax) {
             indMax = ind;
@@ -129,3 +129,4 @@ Allows you to capture the values ​​of a series of characters
     }
 
 }
+
