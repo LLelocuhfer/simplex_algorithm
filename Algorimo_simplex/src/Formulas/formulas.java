@@ -10,8 +10,8 @@ package Formulas;
  * @author qwere
  */
 public class formulas {
-    private static double terminosAuxiliar[] = new double[15];
-    private static double terminos[];
+    private static double termAuxiliary[] = new double[15];
+    private static double terms[];
     static int indMax = 0;  //indice maximo en la entrada de datos
 
 
@@ -27,8 +27,9 @@ public class formulas {
     }
 
 
+    
     /*
-     * Permite recontar un arreglo al valor de indice descrito
+     * Allows you to recount an arrangement to the index value described
      */
     public static double[] recortarArreglo(double[] entrada, int indice) {
         double ayuda[] = new double[indice];
@@ -38,8 +39,8 @@ public class formulas {
         return ayuda;
     }
 
-    /*
-     * Permite recortar una matriz al valor de indices descritos
+   /*
+     * Allows trimming an array to the value of indices described
      */
     public static double[][] cutMatrix(double[][] input, int indx, int indy) {
         double ayuda[][] = new double[indx][indy];
@@ -59,25 +60,26 @@ public class formulas {
 Allows you to capture the values ​​of a series of characters
     symbolizing a term set
      */
-    public static double[] capturar(String entrada) {
-        for (int n = 0; n < terminosAuxiliar.length; n++) {
-            terminosAuxiliar[n] = 0;
+    public static double[] capture(String entrada) {
+        for (int n = 0; n < termAuxiliary.length; n++) {
+            termAuxiliary[n] = 0;
         }
         indMax = 0;
         String termino = "";
         index = 0;
-        //insercion del punto final
+     
+        // insert end point
         entrada = entrada + ":";
         while (entrada.length() - 1 > 0) {
 
             index = nextSign(entrada);
             termino = entrada.substring(0, index);
             entrada = entrada.substring(index);
-            separar(termino);
+            separate(termino);
         }
-        terminos = new double[indMax];
-        System.arraycopy(terminosAuxiliar, 0, terminos, 0, indMax);
-        return terminos;
+        terms = new double[indMax];
+        System.arraycopy(termAuxiliary, 0, terms, 0, indMax);
+        return terms;
     }
 
     /**
@@ -121,7 +123,7 @@ Allows you to capture the values ​​of a series of characters
         //2x1
         if (term.contains("x")) {
             ind = Integer.parseInt(term.substring(term.indexOf('x') + 1));
-            terminosAuxiliar[ind - 1] = Double.parseDouble(term.substring(0, term.indexOf('x')));
+            termAuxiliary[ind - 1] = Double.parseDouble(term.substring(0, term.indexOf('x')));
         }
         if (ind > indMax) {
             indMax = ind;
@@ -129,4 +131,3 @@ Allows you to capture the values ​​of a series of characters
     }
 
 }
-
