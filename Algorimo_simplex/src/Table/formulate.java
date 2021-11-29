@@ -1,14 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Table;
 
-/**
- *
- * @author qwere
- */
 public class formulate {
     private static double termsAuxiliary[] = new double[15];
     private static double terms[];
@@ -69,7 +61,7 @@ public class formulate {
             index = nextSign(input);
             term = input.substring(0, index);
             input = input.substring(index);
-            separar(term);
+            divide(term);
         }
         terms = new double[indMax];
         System.arraycopy(termsAuxiliary, 0, terms, 0, indMax);
@@ -96,7 +88,7 @@ public class formulate {
      * It allows to separate in Sub-index and exponent to the same term
    * end of the equation
      */
-    private static void separar(String term) {
+    private static void divide(String term) {
         int ind = 0;
         try {
             if (term.charAt(0) == '+') {
