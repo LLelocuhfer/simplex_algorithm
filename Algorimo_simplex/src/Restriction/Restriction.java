@@ -1,4 +1,4 @@
-
+ 
 package Restriction;
 import Table.formulate;
 
@@ -8,65 +8,31 @@ public double subscripts[];
     public double valuez;
      double solution;
      
-        public Restriction(double[] subindicesn,int desigualdadn,double valueObj,double valz) {
+        public Restriction(double[] subscriptsn,int inequalityn,double valueObj,double valz) {
          
-             subscripts=subindicesn;
-        inequality=desigualdadn;
+             subscripts=subscriptsn;
+        inequality=inequalityn;
         solution=valueObj;
         valuez=valz;
-         ladoDerechoPositivo();
-    }
-
-    public double[] getSubindices() {
-        return subscripts;
-    }
-
-    public int getDesigualdad() {
-        return inequality;
-    }
-
-    public double getValorZ() {
-        return valuez;
-    }
-
-    public double getSolution() {
-        return solution;
-    }
-
-    public void setSubindices(double[] subindices) {
-        this.subscripts = subindices;
-    }
-
-    public void setDesigualdad(int desigualdad) {
-        this.inequality = desigualdad;
-    }
-
-    public void setvalueZ(double valueZ) {
-        this.valuez = valueZ;
-    }
-
-    public void setSolucion(double solution) {
-        this.solution = solution;
+         positiVerightSide();
     }
         
-        
-        
-    public Restriction(String subindicesn, String desigualdadn, String valorObj,double valZ){
+    public Restriction(String subindicesn, String inequalityn, String valorObj,double valZ){
         //seccion de subindices
         subscripts=formulate.capture(subindicesn);
         ///SECCION DE SIMBOLO DE DESIGUALDAD
-        if(desigualdadn.compareTo("<=") == 0){inequality = -1;}
-        if(desigualdadn.compareTo(">=") == 0){inequality = 1;}
-        if(desigualdadn.compareTo("=") == 0){inequality = 0;}
+        if(inequalityn.compareTo("<=") == 0){inequality = -1;}
+        if(inequalityn.compareTo(">=") == 0){inequality = 1;}
+        if(inequalityn.compareTo("=") == 0){inequality = 0;}
         //SECCION DE VALOR OBJETIVO
         solution = Integer.parseInt(valorObj);
         valuez=valZ;
 
         //Se verifica que el lado derecho sea valor positivo o 0
-        ladoDerechoPositivo();
+        positiVerightSide();
         }
 
-    private void ladoDerechoPositivo(){
+    private void positiVerightSide(){
         if(solution<0){
             solution*=-1;
             inequality*=-1;
@@ -81,4 +47,5 @@ public double subscripts[];
         
 
   
+
 
