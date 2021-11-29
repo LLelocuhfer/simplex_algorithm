@@ -377,8 +377,7 @@ public class view extends javax.swing.JFrame {
     private void cmbsimboloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbsimboloActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbsimboloActionPerformed
-  
-    private void clearContent(){
+  private void clearContent(){
         listResult.clear();
         txtfobjetivo.setText(null);
         for (int i = 0; i < nSub; i++) {
@@ -389,8 +388,11 @@ public class view extends javax.swing.JFrame {
         nSub = 0;
     }
     
+    
     private void btnlimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlimpiarActionPerformed
-        
+        // All add your handling code here:
+        clearContent();
+        problem.deleteAll();
     }//GEN-LAST:event_btnlimpiarActionPerformed
 
     private void btnresolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnresolverActionPerformed
