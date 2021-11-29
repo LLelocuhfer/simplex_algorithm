@@ -42,15 +42,15 @@ public class view extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         cmbmaxmin = new javax.swing.JComboBox<>();
-        txtfobjetivo = new javax.swing.JTextField();
+        txtfobjetctive = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
-        btnagregarRestriccion = new javax.swing.JButton();
-        btnlimpiar = new javax.swing.JButton();
+        addRestriction = new javax.swing.JButton();
+        clear = new javax.swing.JButton();
         cmbsimbolo = new javax.swing.JComboBox<>();
         txtnvalor = new javax.swing.JTextField();
         txtnsubindices = new javax.swing.JTextField();
@@ -58,8 +58,8 @@ public class view extends javax.swing.JFrame {
         jPanel7 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tablaRestricciones = new javax.swing.JTable();
-        btnresolver = new javax.swing.JButton();
+        TableRestrictions = new javax.swing.JTable();
+        btnsolve = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         listResult = new java.awt.List();
@@ -79,14 +79,14 @@ public class view extends javax.swing.JFrame {
             }
         });
 
-        txtfobjetivo.addActionListener(new java.awt.event.ActionListener() {
+        txtfobjetctive.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtfobjetivoActionPerformed(evt);
+                txtfobjetctiveActionPerformed(evt);
             }
         });
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Funcion Objetivo");
+        jLabel3.setText("Objective Function");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -95,14 +95,14 @@ public class view extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(cmbmaxmin, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addGap(106, 106, 106)
-                            .addComponent(txtfobjetivo, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addGap(107, 107, 107)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(106, 106, 106)
+                        .addComponent(txtfobjetctive, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(87, 87, 87))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -111,7 +111,7 @@ public class view extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(cmbmaxmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtfobjetivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtfobjetctive, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19))
         );
 
@@ -159,17 +159,17 @@ public class view extends javax.swing.JFrame {
         jPanel6.setBackground(new java.awt.Color(183, 182, 178));
         jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
-        btnagregarRestriccion.setText("Agregar");
-        btnagregarRestriccion.addActionListener(new java.awt.event.ActionListener() {
+        addRestriction.setText("Agregar");
+        addRestriction.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnagregarRestriccionActionPerformed(evt);
+                addRestrictionActionPerformed(evt);
             }
         });
 
-        btnlimpiar.setText("Limpiar");
-        btnlimpiar.addActionListener(new java.awt.event.ActionListener() {
+        clear.setText("Limpiar");
+        clear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnlimpiarActionPerformed(evt);
+                clearActionPerformed(evt);
             }
         });
 
@@ -177,6 +177,12 @@ public class view extends javax.swing.JFrame {
         cmbsimbolo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbsimboloActionPerformed(evt);
+            }
+        });
+
+        txtnsubindices.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtnsubindicesActionPerformed(evt);
             }
         });
 
@@ -200,8 +206,8 @@ public class view extends javax.swing.JFrame {
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGap(65, 65, 65)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnlimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnagregarRestriccion, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(clear, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(addRestriction, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGap(109, 109, 109)
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -212,9 +218,9 @@ public class view extends javax.swing.JFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(btnagregarRestriccion)
+                .addComponent(addRestriction)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnlimpiar)
+                .addComponent(clear)
                 .addGap(57, 57, 57))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -231,7 +237,7 @@ public class view extends javax.swing.JFrame {
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Restricciones");
 
-        tablaRestricciones.setModel(new javax.swing.table.DefaultTableModel(
+        TableRestrictions.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -242,12 +248,12 @@ public class view extends javax.swing.JFrame {
                 "Subindices", "Simbolo", "Valor"
             }
         ));
-        jScrollPane2.setViewportView(tablaRestricciones);
+        jScrollPane2.setViewportView(TableRestrictions);
 
-        btnresolver.setText("Resolver");
-        btnresolver.addActionListener(new java.awt.event.ActionListener() {
+        btnsolve.setText(" sort out");
+        btnsolve.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnresolverActionPerformed(evt);
+                btnsolveActionPerformed(evt);
             }
         });
 
@@ -265,7 +271,7 @@ public class view extends javax.swing.JFrame {
                 .addGap(106, 106, 106))
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGap(55, 55, 55)
-                .addComponent(btnresolver, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnsolve, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
@@ -275,7 +281,7 @@ public class view extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(3, 3, 3)
-                .addComponent(btnresolver))
+                .addComponent(btnsolve))
         );
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -364,59 +370,63 @@ public class view extends javax.swing.JFrame {
     private Problem problem;
     private int nSub = 0;    //number of restrictions
     private final boolean actionMax = true; //maximize=true , minimize =false
-    private void btnagregarRestriccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarRestriccionActionPerformed
+    private void addRestrictionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addRestrictionActionPerformed
         // All add your handling code here:
-        tablaRestricciones.setValueAt(txtnsubindices.getText(), nSub, 0);
-        tablaRestricciones.setValueAt(cmbsimbolo.getSelectedItem().toString(), nSub, 1);
-        tablaRestricciones.setValueAt(txtnvalor.getText(), nSub, 2);
+        TableRestrictions.setValueAt(txtnsubindices.getText(), nSub, 0);
+        TableRestrictions.setValueAt(cmbsimbolo.getSelectedItem().toString(), nSub, 1);
+        TableRestrictions.setValueAt(txtnvalor.getText(), nSub, 2);
         nSub += 1;
         txtnsubindices.setText("");
         txtnvalor.setText("");
-    }//GEN-LAST:event_btnagregarRestriccionActionPerformed
+    }//GEN-LAST:event_addRestrictionActionPerformed
 
     private void cmbsimboloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbsimboloActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbsimboloActionPerformed
   private void clearContent(){
         listResult.clear();
-        txtfobjetivo.setText(null);
+        txtfobjetctive.setText(null);
         for (int i = 0; i < nSub; i++) {
-            tablaRestricciones.setValueAt(null, i, 0);
-            tablaRestricciones.setValueAt(null, i, 1);
-            tablaRestricciones.setValueAt(null, i, 2);
+            TableRestrictions.setValueAt(null, i, 0);
+            TableRestrictions.setValueAt(null, i, 1);
+            TableRestrictions.setValueAt(null, i, 2);
         }
         nSub = 0;
     }
     
     
-    private void btnlimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlimpiarActionPerformed
+    private void clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearActionPerformed
         // All add your handling code here:
         clearContent();
         problem.deleteAll();
-    }//GEN-LAST:event_btnlimpiarActionPerformed
+    }//GEN-LAST:event_clearActionPerformed
 
-    private void btnresolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnresolverActionPerformed
+    private void btnsolveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsolveActionPerformed
           // TODO add your handling code here:
         problem = new Problem(actionMax);
         listResult.clear();
         problem.deleteAll();
-        problem.setFunctionObjective(capture(txtfobjetivo.getText()));
+        problem.setFunctionObjective(capture(txtfobjetctive.getText()));
         //para prueba directa
         //nRest=3;
         for (int i = 0; i < nSub; i++) {
-            problem.newRestriction(tablaRestricciones.getValueAt(i, 0).toString(), tablaRestricciones.getValueAt(i, 1).toString(), tablaRestricciones.getValueAt(i, 2).toString());
+            problem.newRestriction(TableRestrictions.getValueAt(i, 0).toString(), TableRestrictions.getValueAt(i, 1).toString(), TableRestrictions.getValueAt(i, 2).toString());
         }
         problem.prepare();
         problem.solveMethodSimplex(listResult);
-    }//GEN-LAST:event_btnresolverActionPerformed
+    }//GEN-LAST:event_btnsolveActionPerformed
 
-    private void txtfobjetivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtfobjetivoActionPerformed
+    private void txtfobjetctiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtfobjetctiveActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtfobjetivoActionPerformed
+    }//GEN-LAST:event_txtfobjetctiveActionPerformed
 
     private void listResultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listResultActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_listResultActionPerformed
+
+    private void txtnsubindicesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnsubindicesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtnsubindicesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -457,9 +467,10 @@ public class view extends javax.swing.JFrame {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnagregarRestriccion;
-    private javax.swing.JButton btnlimpiar;
-    private javax.swing.JButton btnresolver;
+    private javax.swing.JTable TableRestrictions;
+    private javax.swing.JButton addRestriction;
+    private javax.swing.JButton btnsolve;
+    private javax.swing.JButton clear;
     private javax.swing.JComboBox<String> cmbmaxmin;
     private javax.swing.JComboBox<String> cmbsimbolo;
     private javax.swing.JLabel jLabel1;
@@ -478,8 +489,7 @@ public class view extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private java.awt.List listResult;
-    private javax.swing.JTable tablaRestricciones;
-    private javax.swing.JTextField txtfobjetivo;
+    private javax.swing.JTextField txtfobjetctive;
     private javax.swing.JTextField txtnsubindices;
     private javax.swing.JTextField txtnvalor;
     // End of variables declaration//GEN-END:variables
