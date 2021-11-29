@@ -378,6 +378,17 @@ public class view extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbsimboloActionPerformed
   
+    private void clearContent(){
+        listResult.clear();
+        txtfobjetivo.setText(null);
+        for (int i = 0; i < nSub; i++) {
+            tablaRestricciones.setValueAt(null, i, 0);
+            tablaRestricciones.setValueAt(null, i, 1);
+            tablaRestricciones.setValueAt(null, i, 2);
+        }
+        nSub = 0;
+    }
+    
     private void btnlimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlimpiarActionPerformed
         
     }//GEN-LAST:event_btnlimpiarActionPerformed
