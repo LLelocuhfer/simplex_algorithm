@@ -160,4 +160,29 @@ public class Table {
         }
         return indexResult;
     }
+    private int calculaterowpivot(int columnPiv) {
+        double values[] = new double[NumRestrictions - 1];
+        int index[] = new int[NumRestrictions - 1];
+        int cont = 0;
+        for (int i = 0; i < NumRestrictions - 1; i++) {
+            if (table[i + 1][columnPiv] > 0 && table[i + 1][table[0].length - 2] != 0) {
+
+                index[cont] = i + 1;
+                values[cont] = Math.abs(table[i + 1][table[0].length - 2] / table[i + 1][columnPiv]);
+                msm(" " + Double.toString(table[i + 1][table[0].length - 2]) + " / " + Double.toString(table[i + 1][columnPiv]) + " = " + Double.toString(values[cont]));
+                cont += 1;
+            }
+        }
+        double less = values[0];
+        int Pivotrow = 1;
+        for (int i = 0; i < cont; i++) {
+            if (values[i] <= less && values[i] != 0) {
+                less = values[i];
+                Pivotrow = index[i];
+            }
+        }
+        System.out.println("pivot row = " + Pivotrow);
+        return Pivotrow;
+
+    }
 }
