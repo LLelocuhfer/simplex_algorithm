@@ -42,7 +42,7 @@ public class Problem {
     }
 
 /*
- * prepara el problema
+ * make the problem
  */
     public void prepare(){
         process=new Table(this);
@@ -51,7 +51,6 @@ public class Problem {
 
     public void solveMethodSimplex(List list) {
         process.solveSimplexMethod(actionMax);
-        //mensaje("numero de resultados . "+proceso.resultado.length);
         for(int i=0;i<process.result.length;i++){
                 list.add(" x"+(i+1)+" = "+process.result[i]);
         }
