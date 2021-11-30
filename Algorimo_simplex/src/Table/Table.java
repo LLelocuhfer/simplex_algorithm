@@ -285,4 +285,25 @@ boolean tieneRespuesta=true;
             setResult();
    
     }
+    private void calculateM(Problem problem) {
+        double suma = 0;
+        for (int i = 1; i < problem.restrictions.size(); i++) {
+ 
+        }
+        M = suma / (problem.restrictions.size() - 1) * 1000;
+    }
+
+ 
+
+    private int variableBySign(int inequality) {
+        int result = 0;
+        if (inequality == 1) {
+            result = 2;
+        }
+        if (inequality == 0 || inequality == -1) {
+            result = 1;
+        }
+
+        return result;
+    }
 }
