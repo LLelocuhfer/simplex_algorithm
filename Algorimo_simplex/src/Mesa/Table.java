@@ -136,4 +136,17 @@ public class Table {
             table[i][amplitude - 1] = problem.restrictions.get(i).valuez;
         }
     }
+    /*
+     *here we can check if when entering values, there are no negatives
+     */
+    private boolean testOptimity() {
+        boolean r = true;
+        for (int i = 0; i < table[0].length; i++) {
+            if (table[0][i] < 0) {
+                r = false;
+                break;
+            }
+        }
+        return r;
+    }
 }
