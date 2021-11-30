@@ -185,4 +185,30 @@ public class Table {
         return Pivotrow;
 
     }
+    private void simplifyrowPivot(int pivotRow, double pivotNumber) {
+        for (int i = 0; i < table[0].length; i++) {
+            table[pivotRow][i] = table[pivotRow][i] / pivotNumber;
+        }
+    }
+
+    
+    private void simplifyAllRowPivot(int pivotRow, int pivotColumn) {
+        for (int i = 0; i < table.length; i++) {
+            if (table[i][pivotColumn] != 0 && i != pivotRow) {
+                if (table[i][pivotColumn] > 0) {
+ 
+                    double factor = table[i][pivotColumn] * -1;
+                    for (int j = 0; j < table[0].length; j++) {
+                        table[i][j] = table[pivotRow][j] * factor + table[i][j];
+                    }
+                } else {
+       
+                    double factor = table[i][pivotColumn] * -1;
+                    for (int j = 0; j < table[0].length; j++) {
+                        table[i][j] = table[pivotRow][j] * factor + table[i][j];
+                    }
+                }
+            }
+        }
+    }
 }
