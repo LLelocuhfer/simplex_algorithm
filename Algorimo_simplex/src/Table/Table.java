@@ -229,4 +229,60 @@ public class Table {
             System.out.println(" x" + (i + 1) + " = " + result[i]);
         }
     }
+    public void solveSimplexMethod(boolean actionMax) {
+        int iteration = 1;  
+           
+        try {
+            double[] restador = null;
+            for (int i = 0; i < sameCase.length; i++) {
+                if (sameCase[i] == 1) {
+                    System.out.println("hay = en la fila " + i);
+                    restador = formulate.earnValues(table[i]);
+
+                    System.arraycopy(table[i],0,restador,0,table[i].length);
+                    for (int k = 0; k < restador.length; k++) {
+                        restador[k] *= M;
+                        table[0][k] -= restador[k];
+                    }
+                    sameCase[i] = 0;
+                    printTable("The great M in iteration" + iteration);
+                    iteration += 1;
+                }
+
+            }
+        } catch (Exception ex1) {
+            System.out.println("Error of copy");
+            System.out.println(ex1.getCause());
+        }
+ 
+        msm("Entering the optimization while");
+
+boolean tieneRespuesta=true;
+        while (testOptimity() != true && tieneRespuesta==true ) {
+            int columnPivot = calculatecolumnpivot();
+            int filaPivote = calculaterowpivot(columnPivot);
+            double numeroPivote = table[filaPivote][columnPivot];
+            msm("number pivot: " + numeroPivote + "in the position[" + filaPivote + "][" + columnPivot + "]" + " en iteracion " + iteration);
+ 
+            simplifyrowPivot(filaPivote, numeroPivote);
+            printTable("simplified pivot row in iteration " + iteration);
+ 
+            simplifyAllRowPivot(filaPivote, columnPivot);
+            printTable("Full simplified in iteration " + iteration);
+            iteration += 1;
+            if(iteration==100){
+                tieneRespuesta=false;
+                String s="The problem has no solution!"
+                        + "\nCheck equations for inconsistencies "
+                        + "that may have caused an infinite loop";
+                menssage.show(s);
+               
+            }
+        }
+    
+        printTable(" SIMPLEX RESULT TABLE");
+        
+            setResult();
+   
+    }
 }
