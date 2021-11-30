@@ -95,4 +95,45 @@ public class Table {
     public void setCasoIgual(int[] sameCase) {
         this.sameCase = sameCase;
     }
+    /*
+     * TABLE CLASS BUILDER
+     */
+    public Table(Problem problem) {
+        calculateM(problem);
+        NumRestrictions = problem.restrictions.size();
+        sameCase = new int[NumRestrictions];
+        NumVariables = maximumNumSubscripts(problem);
+        amplitude = NumVariables +Additionalvariables(problem) + 1;
+        table = new double[NumRestrictions][amplitude];
+        int k = NumVariables;
+        for (int i = 0; i < NumRestrictions; i++) {
+            //incorporar subindices
+            for (int ii = 0; ii < NumVariables; ii++) {
+                try {
+                    table[i][ii] = problem.restrictions.get(i).subscripts[ii];
+                } catch (Exception ex) {
+                    table[i][ii] = 0;
+                }
+            }
+           
+    // incorporate slack variables
+            if (problem.restrictions.get(i).valuez != 1)/* Except in the objective function */ {
+                if (variableBySign(problem.restrictions.get(i).inequality) == 1) {
+                    table[i][k] = 1;
+                    if (problem.restrictions.get(i).inequality == 0)  {
+                        table[0][k] = M;
+                        sameCase[i] = 1;
+                    }
+                    k += 1;
+                }
+                if (variableBySign(problem.restrictions.get(i).inequality) == 2)/en caso de >=/{
+                    table[i][k] = -1;
+                    table[i][k + 1] = 1;
+                    k += 2;
+                }
+            }
+         
+            table[i][amplitude - 1] = problem.restrictions.get(i).valuez;
+        }
+    }
 }
