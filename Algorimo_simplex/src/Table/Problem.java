@@ -75,7 +75,7 @@ public class Problem {
             System.out.println("    inequality");
             System.out.println(restrictions.get(i).inequality);
             System.out.println("    values");
-      //      System.out.println(restrictions.get(i).solucion);
+ 
         }
 
 
