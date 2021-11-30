@@ -306,4 +306,49 @@ boolean tieneRespuesta=true;
 
         return result;
     }
+    /*
+     * Permite calcular cuantas variables se van a añadir
+     */
+    private int Additionalvariables(Problem problem) {
+        int amplitud = 0;
+        for (int i = 0; i < problem.restrictions.size(); i++) {
+            amplitud += variableBySign(problem.restrictions.get(i).inequality);
+        }
+        return amplitud;
+    }
+
+    /*
+     * Permite ver el resultado de la tabla en consola
+     */
+    public void printTable(String titulo) {
+        System.out.println("");
+        System.out.println("-->  " + titulo);
+        for(int ii = 0; ii < table.length; ii++) {
+            System.out.println(" ");
+            for (int jj = 0; jj < table[0].length; jj++) {
+                System.out.print(Double.toString(table[ii][jj]) + "  ,  ");
+            }
+        }
+        System.out.println("");
+    }
+
+    private void msm(String mensaje) {
+        System.out.println("::::::::::Informacion::::::::");
+        System.out.println("Resultado: --> " + mensaje);
+        System.out.println("");
+    }
+    
+    
+     /*
+     * Encuentra la cantidad maxima de subindices
+     */
+    private int maximumNumSubscripts(Problem problem) {
+        int maximum = 0;
+        for (int i = 0; i < problem.restrictions.size(); i++) {
+            if (problem.restrictions.get(i).subscripts.length > maximum) {
+                maximum = problem.restrictions.get(i).subscripts.length;
+            }
+        }
+        return maximum;
+    }
 }
