@@ -149,4 +149,15 @@ public class Table {
         }
         return r;
     }
+    private int calculatecolumnpivot() {
+        int indexResult = 0;
+        double less = table[0][indexResult];
+        for (int i = 0; i < table[0].length - 2; i++) {
+      if (table[0][i] <= less && table[0][i] < 0) {
+                less = table[0][i];
+                indexResult = i;
+            }
+        }
+        return indexResult;
+    }
 }
