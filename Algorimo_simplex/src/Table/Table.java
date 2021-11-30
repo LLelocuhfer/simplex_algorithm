@@ -306,8 +306,9 @@ boolean tieneRespuesta=true;
 
         return result;
     }
-    /*
-     * Permite calcular cuantas variables se van a añadir
+    
+/*
+     * It allows to calculate how many variables are going to be added
      */
     private int Additionalvariables(Problem problem) {
         int amplitud = 0;
@@ -317,8 +318,9 @@ boolean tieneRespuesta=true;
         return amplitud;
     }
 
-    /*
-     * Permite ver el resultado de la tabla en consola
+   
+/*
+     * Allows you to see the result of the table in the console
      */
     public void printTable(String titulo) {
         System.out.println("");
@@ -340,7 +342,7 @@ boolean tieneRespuesta=true;
     
     
      /*
-     * Encuentra la cantidad maxima de subindices
+     * Find the maximum number of subscripts
      */
     private int maximumNumSubscripts(Problem problem) {
         int maximum = 0;
