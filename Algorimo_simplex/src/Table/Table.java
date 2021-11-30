@@ -211,4 +211,22 @@ public class Table {
             }
         }
     }
+    private void setResult() {
+        System.out.println(" NumVariables = " + NumVariables);
+        result = new double[NumVariables];
+        int k=0;
+        for (int i = 0; i < table.length; i++) {
+            for (int j = 0; j < NumVariables; j++) {
+                if (table[i][j] == 1) {
+                    result[j] = table[i][table[0].length - 2];
+                    k=j;
+                }
+            }
+        }
+        z=table[0][table[0].length - 2];
+        System.out.println("");
+        for (int i = 0; i < result.length; i++) {
+            System.out.println(" x" + (i + 1) + " = " + result[i]);
+        }
+    }
 }
