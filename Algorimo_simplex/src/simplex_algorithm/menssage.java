@@ -7,7 +7,7 @@ package simplex_algorithm;
 import Interface.view;
 /**
  *
- * @author qwere
+ * @author Fernando 
  */
 public class menssage extends javax.swing.JFrame {
 
